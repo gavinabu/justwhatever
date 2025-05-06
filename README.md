@@ -16,4 +16,26 @@ AWS_REGION=aws region
 AWS_ACCESS=aws iam
 AWS_SECRET=aws iam secret
 S3_BUCKET=aws s3 bucket name
-```x
+```
+
+### Database
+
+Using mongodb. Create a da  tabase named `mainWebsite`.\
+Inside add a collection named `projects`\
+Inside projects you can add a project using the following syntax
+```
+{
+  name: string,
+  about: string,
+  tags: string[],
+  id: string,
+  banner: string,
+  screenshots: string[],
+  registeredTo: string,
+  credits: Record<string, string[]>,
+  otherCredits: Record<string, string[]>,
+  frameworks: string[],
+  type: "project" | "work",
+  link: string
+}
+```
