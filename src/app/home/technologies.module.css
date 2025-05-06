@@ -1,0 +1,71 @@
+/*
+ * © 2020-2025 JustWhatever. All rights reserved.
+ *  Property of Gavin Abu-Zahra. Do not reproduce or distribute without explicit permission.
+ */
+
+.technologiesContainer {
+  display: flex;
+  padding: 10px 0;
+  background: #F2F2F2;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+  align-self: stretch;
+}
+
+@keyframes appear {
+  0% {
+    opacity: 0;
+    scale: 0.8;
+  }
+  20% {
+    opacity: 1;
+    scale: 1;
+  }
+}
+
+.technologiesContainer > h2 {
+  color: #000;
+  text-align: center;
+  font-family: Rubik;
+  font-size: clamp(12px,4vw,32px);
+  font-weight: 600;
+  animation: appear linear;
+  animation-timeline: view();
+}
+
+
+@keyframes techappear {
+  0% {
+    opacity: 0.25;
+  }
+  8% {
+    opacity: 1;
+  }
+}
+
+
+.technologies {
+  width: 100%;
+  overflow: hidden;
+  animation: techappear linear;
+  animation-timeline: view();
+}
+
+
+@keyframes slideRight {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+
+.technologiesTrack {
+  display: flex;
+  gap: 2px;
+  width: max-content;
+  animation: slideRight 30s linear infinite;
+}

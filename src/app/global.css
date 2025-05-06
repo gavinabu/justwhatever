@@ -1,0 +1,19 @@
+/*
+ * © 2020-2025 JustWhatever. All rights reserved.
+ *  Property of Gavin Abu-Zahra. Do not reproduce or distribute without explicit permission.
+ */
+
+@font-face {
+  font-family: Rubik;
+  src: var("--font-rubik");
+}
+
+@font-face {
+  font-family: Figtree;
+  src: var("--font-figtree");
+}
+
+* {
+  margin: 0;
+  /*outline: red 1px solid;*/
+}

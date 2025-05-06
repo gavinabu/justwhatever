@@ -1,0 +1,62 @@
+/*
+ * © 2020-2025 JustWhatever. All rights reserved.
+ *  Property of Gavin Abu-Zahra. Do not reproduce or distribute without explicit permission.
+ */
+
+.container {
+  display: flex;
+  padding: 10px 0;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+  align-self: stretch;
+  background: #F2F2F2;
+}
+
+@keyframes appear {
+  0% {
+    opacity: 0;
+    scale: 0.8;
+  }
+  30% {
+    opacity: 1;
+    scale: 1;
+  }
+}
+
+.container > h2 {
+  color: #000;
+  text-align: center;
+  font-family: Rubik;
+  font-size: clamp(12px,4vw,32px);
+  font-weight: 600;
+  animation: appear linear;
+  animation-timeline: view();
+}
+
+.projects {
+  display: flex;
+  padding: 10px 0;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  align-self: stretch;
+}
+
+@keyframes cardappear {
+  0% {
+    transform: translateY(20px);
+    scale: 0.25;
+  }
+  30% {
+    transform: translateY(0);
+    scale: 1;
+  }
+}
+
+.projects > div {
+  animation: cardappear linear;
+  animation-timeline: view();
+}

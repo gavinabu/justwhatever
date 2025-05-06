@@ -1,0 +1,89 @@
+/*
+ * © 2020-2025 JustWhatever. All rights reserved.
+ *  Property of Gavin Abu-Zahra. Do not reproduce or distribute without explicit permission.
+ */
+
+.card {
+  display: flex;
+  width: min-content;
+  min-width: clamp(256px, 25vw, 512px);
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  flex-shrink: 0;
+  border-radius: 32px;
+  border: 2px solid #9D9D9D;
+  background: #ffffff;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.25);
+  overflow: hidden;
+}
+
+.card > img {
+  width: 100%;
+  align-self: stretch;
+}
+
+.card .body {
+  display: flex;
+  padding: 5px 0 10px 0;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+  align-self: stretch;
+}
+
+.card .body > h3 {
+  color: #000;
+  text-align: center;
+  font-family: Rubik;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  align-self: stretch;
+}
+
+.card .body > span,
+.card .body > a {
+  text-align: center;
+  font-family: Rubik;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  align-self: stretch;
+}
+
+.card .body > span {
+  color: #5C5C5C;
+}
+
+.card .body > a {
+  color: #2E4AFF;
+  text-decoration-line: underline;
+}
+
+.card .body > .buttonContainer {
+  display: flex;
+  padding: 0 10px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-end;
+  gap: 10px;
+  align-self: stretch;
+}
+
+.card .body > .buttonContainer > a > button {
+  height: 48px;
+  padding: 9px 16px;
+  border-radius: 24px;
+  background: #71B1FF;
+  color: #000;
+  font-family: Figtree;
+  font-size: 18px;
+  font-weight: 500;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
