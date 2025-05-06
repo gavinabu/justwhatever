@@ -8,6 +8,8 @@ import {findSignedURL} from "@/app/util/media";
 
 import classes from './projects.module.css'
 
+export const dynamic = "force-dynamic";
+
 export default async function Projects(props: {title: string, items: {title: string, moreinfo: string, banner: string, isLink?: boolean, description: string, url?: string}[]}) {
   return (
     <div className={classes.container}>

@@ -9,6 +9,9 @@ import {connectToDatabase} from "@/app/util/mongo";
 import {Project} from "@/app/util/types";
 import {findSignedURL} from "@/app/util/media";
 import Technology from "@/app/components/technolagies/Technology";
+import {notFound} from "next/navigation";
+
+export const dynamic = "force-dynamic";
 
 export default async function ProjectPage(params: any) {
   const parms = await params.params;
@@ -17,8 +20,7 @@ export default async function ProjectPage(params: any) {
   const project = await db.collection<Project>("projects").findOne({ id: id });
   
   if(!project) {
-    location.replace("/");
-    return (<span>Error 404</span>)
+    return notFound();
   }
   
   const desc = project.tags.includes("indev") ? "COMING SOON" : project.link === "" ? "UNRELEASED" : new URL(project.link).hostname

@@ -16,6 +16,8 @@ import {connectToDatabase} from "@/app/util/mongo";
 import {Project} from "@/app/util/types";
 import {Suspense} from "react";
 
+export const dynamic = "force-dynamic";
+
 export default async function Home() {
   const db = (await connectToDatabase()).db;
   const projects = await db.collection<Project>("projects").find({type: "project"}).toArray();
@@ -29,7 +31,7 @@ export default async function Home() {
           title: e.name,
           moreinfo: `/projects/${e.id}`,
           description: e.tags.includes("indev") ? "COMING SOON" : e.link === "" ? "UNRELEASED" : new URL(e.link).hostname,
-          url: e.link !== "" ? false : e.link,
+          url: e.link === "" ? false : e.link,
           isLink: e.link !== "" && !e.tags.includes("indev"),
           banner: e.banner
         } as any})}/>
@@ -37,7 +39,7 @@ export default async function Home() {
           title: e.name,
           moreinfo: `/projects/${e.id}`,
           description: e.tags.includes("indev") ? "COMING SOON" : e.link === "" ? "UNRELEASED" : new URL(e.link).hostname,
-          url: e.link !== "" ? false : e.link,
+          url: e.link === "" ? false : e.link,
           isLink: e.link !== "" && !e.tags.includes("indev"),
           banner: e.banner
         } as any})}/>

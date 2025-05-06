@@ -14,7 +14,7 @@
 
 .contact > * {
   font-family: Figtree;
-  color: #000;
+  color: #000000;
   text-align: center;
 }
 
@@ -23,8 +23,16 @@
   font-weight: 700;
 }
 
-.contact > span {
+.contact > a {
   font-size: 16px;
+  color: #000000;
+  text-decoration: none;
+  transition: 500ms;
+}
+
+.contact > a:hover {
+  color: #2E4AFF;
+  text-decoration: underline;
 }
 
 .footer {

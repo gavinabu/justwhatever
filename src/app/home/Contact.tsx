@@ -9,7 +9,7 @@ export default function Contact(props: {}) {
   return (
     <div className={classes.contact}>
       <h2>Contact Me?</h2>
-      <span>gavinabuzahra@justwhatever.net</span>
+      <a href="mailto:gavinabuzahra@justwhatever.net">gavinabuzahra@justwhatever.net</a>
     </div>
   )
 }
