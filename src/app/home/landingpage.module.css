@@ -22,8 +22,7 @@
   height: 100vh;
   overflow: hidden;
   z-index: 0;
-  opacity: 0.5;
-  background: url("/assets/noiseMap.png") #222222 0% 0% / 512px 512px repeat;
+  opacity: 1;
 }
 
 .shapes > * {

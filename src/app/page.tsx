@@ -14,6 +14,7 @@ import Technology from "@/app/components/technolagies/Technology";
 import Technologies from "@/app/home/Technologies";
 import {connectToDatabase} from "@/app/util/mongo";
 import {Project} from "@/app/util/types";
+import {Suspense} from "react";
 
 export default async function Home() {
   const db = (await connectToDatabase()).db;
@@ -23,22 +24,24 @@ export default async function Home() {
     <>
       <LandingPage/>
       <Socials/>
-      <Projects title="Projects" items={projects.map(e => {return {
-        title: e.name,
-        moreinfo: `/projects/${e.id}`,
-        description: e.tags.includes("indev") ? "COMING SOON" : e.link === "" ? "UNRELEASED" : new URL(e.link).hostname,
-        url: e.link !== "" ? false : e.link,
-        isLink: e.link !== "" && !e.tags.includes("indev"),
-        banner: e.banner
-      } as any})}/>
-      <Projects title="Work Experience" items={work.map(e => {return {
-        title: e.name,
-        moreinfo: `/projects/${e.id}`,
-        description: e.tags.includes("indev") ? "COMING SOON" : e.link === "" ? "UNRELEASED" : new URL(e.link).hostname,
-        url: e.link !== "" ? false : e.link,
-        isLink: e.link !== "" && !e.tags.includes("indev"),
-        banner: e.banner
-      } as any})}/>
+      <Suspense fallback={<div></div>}>
+        <Projects title="Projects" items={projects.map(e => {return {
+          title: e.name,
+          moreinfo: `/projects/${e.id}`,
+          description: e.tags.includes("indev") ? "COMING SOON" : e.link === "" ? "UNRELEASED" : new URL(e.link).hostname,
+          url: e.link !== "" ? false : e.link,
+          isLink: e.link !== "" && !e.tags.includes("indev"),
+          banner: e.banner
+        } as any})}/>
+        <Projects title="Work Experience" items={work.map(e => {return {
+          title: e.name,
+          moreinfo: `/projects/${e.id}`,
+          description: e.tags.includes("indev") ? "COMING SOON" : e.link === "" ? "UNRELEASED" : new URL(e.link).hostname,
+          url: e.link !== "" ? false : e.link,
+          isLink: e.link !== "" && !e.tags.includes("indev"),
+          banner: e.banner
+        } as any})}/>
+      </Suspense>
       <Technologies/>
       <Contact/>
       <Footer/>
