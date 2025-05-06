@@ -21,8 +21,9 @@ S3_BUCKET=aws s3 bucket name
 ### Database
 
 Using mongodb. Create a da  tabase named `mainWebsite`.\
-Inside add a collection named `projects`\
-Inside projects you can add a project using the following syntax
+Inside the database add a collection named `scache`\
+Inside the database add a collection named `projects`\
+Inside `projects` you can add a project using the following syntax
 ```
 {
   name: string,
