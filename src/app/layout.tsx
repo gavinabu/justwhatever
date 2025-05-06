@@ -6,6 +6,7 @@
 import type { Metadata } from "next";
 import {Figtree, Rubik} from "next/font/google";
 import "./global.css"
+import Favicon from "./assets/favicon.png"
 
 const rubikFont = Rubik({
   variable: "--font-rubik",
@@ -20,6 +21,10 @@ const figTreeFont = Figtree({
 export const metadata: Metadata = {
   title: "JustWhatever",
   description: "Hey, I am Gavin Abu-Zahra, and I am a full stack web developer.",
+  icons: {
+    icon: Favicon.src,
+    apple: Favicon.src
+  }
 };
 
 export default function RootLayout({
