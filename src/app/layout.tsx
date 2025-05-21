@@ -7,6 +7,7 @@ import type { Metadata } from "next";
 import {Figtree, Rubik} from "next/font/google";
 import "./global.css"
 import Favicon from "./assets/favicon.png"
+import { Analytics } from "@vercel/analytics/next"
 
 const rubikFont = Rubik({
   variable: "--font-rubik",
@@ -36,6 +37,7 @@ export default function RootLayout({
     <html lang="en" data-color-mode="light">
       <body className={`${rubikFont.variable} ${figTreeFont.variable}`}>
         {children}
+        <Analytics/>
       </body>
     </html>
   );
