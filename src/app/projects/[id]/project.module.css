@@ -109,11 +109,17 @@
   align-self: stretch;
 }
 
-.project > .header > .info a {
+.project > .header > .info > code > a {
   color: #2E4AFF;
 }
 
+.project > .header > .info > a {
+  color: #000000;
+}
 
+.project > .header > .info > a.link {
+  color: #2E4AFF;
+}
 
 .project > .body {
   display: flex;

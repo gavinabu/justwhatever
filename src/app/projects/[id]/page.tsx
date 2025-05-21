@@ -4,12 +4,14 @@
  */
 
 import classes from "./project.module.css";
-import {IconChevronLeft} from "@tabler/icons-react";
+import {IconBrandGithubFilled, IconChevronLeft} from "@tabler/icons-react";
 import {connectToDatabase} from "@/app/util/mongo";
 import {Project} from "@/app/util/types";
 import {findSignedURL} from "@/app/util/media";
 import Technology from "@/app/components/technolagies/Technology";
 import {notFound} from "next/navigation";
+import MarkdownPreview from "@uiw/react-markdown-preview";
+import ReadMePreview from "@/app/projects/[id]/ReadMePreview";
 
 export const dynamic = "force-dynamic";
 
@@ -21,6 +23,12 @@ export default async function ProjectPage(params: any) {
   
   if(!project) {
     return notFound();
+  }
+  
+  let readme;
+  if(project.github) {
+    const read = await (await fetch(`https://raw.githubusercontent.com/${project.github}/refs/heads/main/README.md`)).text()
+    if(read !== "404: Not Found") readme = read;
   }
   
   const desc = project.tags.includes("indev") ? "COMING SOON" : project.link === "" ? "UNRELEASED" : new URL(project.link).hostname
@@ -38,9 +46,10 @@ export default async function ProjectPage(params: any) {
             {project.npm ?
               <code>npm i <a href={`https://www.npmjs.com/package/${project.npm}`}>{project.npm}</a></code> :
               (project.link !== "" && !project.tags.includes("indev")) ?
-              <a href={project.link}>{desc}</a> :
+              <a className="link" href={project.link}>{desc}</a> :
               <span>{desc}</span>
             }
+            {project.github && <a href={`https://github.com/${project.github}`} style={{marginTop: 4}}><IconBrandGithubFilled size={20}/></a>}
           </div>
           <div className={classes.banner}>
             <img src={await findSignedURL(project.banner, true)}/>
@@ -52,6 +61,7 @@ export default async function ProjectPage(params: any) {
           <div className={classes.screenshots}>
             {project.screenshots.map(async (e) => (<img src={await findSignedURL(e)}/>))}
           </div>
+          {readme && <ReadMePreview readme={readme} />}
         </div>
       </div>
     </div>

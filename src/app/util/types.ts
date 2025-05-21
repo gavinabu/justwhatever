@@ -20,5 +20,6 @@ export interface Project {
   frameworks: TechnologyType[],
   type: "project" | "work",
   link: string,
-  npm?: string
+  npm?: string,
+  github?: string
 }
