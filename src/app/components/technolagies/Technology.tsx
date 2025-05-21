@@ -28,7 +28,7 @@ import {
 
 export type TechnologyType = "ts"|"js"|"java"|"cpp"|"css"|"json"|"html"|"nodejs"|"react"|"next"|"bootstrap"|"matterjs"|"mongodb"|"aws"|"linux"|"webpack"|"electron"|"socketio"|"bun"|"vercel"
 
-export default function Technology(params: {type: TechnologyType}) {
+export default function Technolnogy(params: {type: TechnologyType}) {
   function getIcon(type: TechnologyType) {
     switch (type) {
       case "ts": return <IconBrandTypescript/>;

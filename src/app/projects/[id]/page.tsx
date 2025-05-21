@@ -35,7 +35,9 @@ export default async function ProjectPage(params: any) {
         <div className={classes.header}>
           <div className={classes.info}>
             <h1>{project.name}</h1>
-            {(project.link !== "" && !project.tags.includes("indev")) ?
+            {project.npm ?
+              <code>npm i <a href={`https://www.npmjs.com/package/${project.npm}`}>{project.npm}</a></code> :
+              (project.link !== "" && !project.tags.includes("indev")) ?
               <a href={project.link}>{desc}</a> :
               <span>{desc}</span>
             }

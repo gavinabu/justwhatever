@@ -19,5 +19,6 @@ export interface Project {
   otherCredits: Record<string, string[]>,
   frameworks: TechnologyType[],
   type: "project" | "work",
-  link: string
+  link: string,
+  npm?: string
 }

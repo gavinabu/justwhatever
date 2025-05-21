@@ -32,6 +32,7 @@ export default async function Home() {
           moreinfo: `/projects/${e.id}`,
           description: e.tags.includes("indev") ? "COMING SOON" : e.link === "" ? "UNRELEASED" : new URL(e.link).hostname,
           url: e.link === "" ? false : e.link,
+          npm: e.npm,
           isLink: e.link !== "" && !e.tags.includes("indev"),
           banner: e.banner
         } as any})}/>
@@ -40,6 +41,7 @@ export default async function Home() {
           moreinfo: `/projects/${e.id}`,
           description: e.tags.includes("indev") ? "COMING SOON" : e.link === "" ? "UNRELEASED" : new URL(e.link).hostname,
           url: e.link === "" ? false : e.link,
+          npm: e.npm ? false : e.npm,
           isLink: e.link !== "" && !e.tags.includes("indev"),
           banner: e.banner
         } as any})}/>
