@@ -1,3 +1,4 @@
+"use client"
 /*
  * © 2020-2025 JustWhatever. All rights reserved.
  *  Property of Gavin Abu-Zahra. Do not reproduce or distribute without explicit permission.
@@ -5,9 +6,17 @@
 
 import classes from './technologies.module.css'
 import Technology from "@/app/components/technolagies/Technology";
-import {ReactNode} from "react";
+import {ReactNode, useState} from "react";
+import {
+  IconBaselineDensityLarge,
+  IconBaselineDensityMedium, IconBaselineDensitySmall,
+  IconLineDashed,
+  IconLineDotted,
+  IconMenu
+} from "@tabler/icons-react";
 
 export default function Technologies(props: {}) {
+  const [isList, setIsList] = useState(false);
   const technologies: ReactNode[] = [
     <Technology type="ts"/>,
     <Technology type="js"/>,
@@ -32,11 +41,14 @@ export default function Technologies(props: {}) {
   ]
   return (
     <div className={classes.technologiesContainer}>
-      <h2>Technologies</h2>
-      <div className={classes.technologies}>
-        <div className={classes.technologiesTrack}>
-          {new Array(2).fill(technologies).flat()}
-        </div>
+      <div className={classes.technologiesHeader}>
+        <h2>Technologies</h2>
+        <button onClick={() => setIsList(!isList)}>{isList ? <IconLineDotted size={12}/> : <IconBaselineDensitySmall size={12}/>}</button>
+      </div>
+      <div className={classes.technologies} data-isList={isList ? "true" : "false"}>
+        {isList ? technologies : <div className={classes.technologiesTrack}>
+          {new Array(8).fill(technologies).flat()}
+        </div>}
       </div>
     </div>
   )

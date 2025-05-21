@@ -13,6 +13,16 @@
   align-self: stretch;
 }
 
+.technologiesContainer > button {
+  padding: 8px;
+  border-radius: 6px;
+  cursor: pointer;
+  background-color: #e3e3e3;
+  border: none;
+  animation: appear linear;
+  animation-timeline: view();
+}
+
 @keyframes appear {
   0% {
     opacity: 0;
@@ -24,7 +34,14 @@
   }
 }
 
-.technologiesContainer > h2 {
+.technologiesContainer > .technologiesHeader {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.technologiesContainer > .technologiesHeader > h2 {
   color: #000;
   text-align: center;
   font-family: Rubik;
@@ -32,6 +49,17 @@
   font-weight: 600;
   animation: appear linear;
   animation-timeline: view();
+}
+
+.technologiesContainer > .technologiesHeader > button {
+  padding: 8px;
+  border-radius: 6px;
+  cursor: pointer;
+  background-color: #e3e3e3;
+  border: none;
+  animation: appear linear;
+  animation-timeline: view();
+  height: min-content;
 }
 
 
@@ -44,6 +72,16 @@
   }
 }
 
+@keyframes techappearlist {
+  100% {
+    opacity: 0.25;
+  }
+  20% {
+    opacity: 1;
+  }
+}
+
+
 
 .technologies {
   width: 100%;
@@ -52,6 +90,13 @@
   animation-timeline: view();
 }
 
+.technologies[data-isList="true"] {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+  flex-wrap: wrap;
+}
 
 @keyframes slideRight {
   0% {
@@ -67,5 +112,5 @@
   display: flex;
   gap: 2px;
   width: max-content;
-  animation: slideRight 30s linear infinite;
+  animation: slideRight 120s linear infinite;
 }
