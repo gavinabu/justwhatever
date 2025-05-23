@@ -8,7 +8,7 @@ import classes from "./card.module.css";
 export default function ProjectCard(props: {banner: string, title: string, description: string, url?: string, isLink?: boolean, moreinfo: string, npm?: string}) {
   return (
     <div className={classes.card}>
-      <img src={props.banner} />
+      <img src={props.banner} alt={props.title} />
       <div className={classes.body}>
         <h3>{props.title}</h3>
         {props.npm ?

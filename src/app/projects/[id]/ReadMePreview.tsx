@@ -5,9 +5,12 @@
  */
 
 import MarkdownPreview from "@uiw/react-markdown-preview";
+import classes from './readme.module.css'
 
 export default function ReadMePreview(props: {readme: string}) {
   return (
-    <MarkdownPreview source={props.readme} style={{padding: 24, borderRadius: 12}} />
+    <div className={classes.readmeWrapper}>
+      <MarkdownPreview className={classes.readme} source={props.readme} />
+    </div>
   )
 }

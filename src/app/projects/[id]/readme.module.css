@@ -1,0 +1,17 @@
+/*
+ * © 2020-2025 JustWhatever. All rights reserved.
+ *  Property of Gavin Abu-Zahra. Do not reproduce or distribute without explicit permission.
+ */
+
+.readmeWrapper {
+  width: 100%;
+}
+
+.readmeWrapper > .readme {
+  padding: 24px;
+  border-radius: 12px;
+}
+
+.readmeWrapper > .readme pre code {
+  width: calc(100% - 48px);
+}
