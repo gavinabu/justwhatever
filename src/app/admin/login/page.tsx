@@ -5,7 +5,7 @@
 
 import {redirect} from "next/navigation";
 import {IconChevronLeft} from "@tabler/icons-react";
-import {isAdmin} from "@/app/util/auth";
+import {adminConfigured, isAdmin} from "@/app/util/auth";
 import LoginForm from "@/app/admin/login/LoginForm";
 
 import classes from "../admin.module.css";
@@ -22,7 +22,7 @@ export default async function LoginPage() {
       </a>
       <div className={`${classes.panel} ${classes.login}`}>
         <h1>Admin</h1>
-        {!process.env.ADMIN_PASSWORD && <p className={classes.error}>ADMIN_PASSWORD is not set, so login is disabled.</p>}
+        {!adminConfigured() && <p className={classes.error}>ADMIN_PASSWORD_HASH is not set, so login is disabled.</p>}
         <LoginForm/>
       </div>
     </>

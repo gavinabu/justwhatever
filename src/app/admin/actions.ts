@@ -21,7 +21,7 @@ const TAGS: Tag[] = ["website", "game", "indev"];
 const ID_PATTERN = /^[a-z0-9][a-z0-9-]*$/;
 
 export async function login(_: FormState, formData: FormData): Promise<FormState> {
-  if (!checkPassword(String(formData.get("password") || ""))) {
+  if (!(await checkPassword(String(formData.get("password") || "")))) {
     // Slow down guessing a little.
     await new Promise(r => setTimeout(r, 750));
     return {error: "Wrong password"};

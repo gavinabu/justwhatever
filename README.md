@@ -16,13 +16,14 @@ AWS_REGION=aws region
 AWS_ACCESS=aws iam
 AWS_SECRET=aws iam secret
 S3_BUCKET=aws s3 bucket name
-ADMIN_PASSWORD=password for /admin
-ADMIN_SECRET=optional, signs admin session cookies (defaults to ADMIN_PASSWORD)
+ADMIN_PASSWORD_HASH=scrypt hash of the /admin password (see below)
+ADMIN_SECRET=optional, signs admin session cookies (defaults to ADMIN_PASSWORD_HASH)
 ```
 
 ### Admin
 
-Go to `/admin` and sign in with `ADMIN_PASSWORD` to add, edit and delete projects, upload banners/screenshots to S3, and clear the signed URL cache. Login is disabled when `ADMIN_PASSWORD` is unset.
+Run `npm run hash-password`, enter a password, and put the printed `ADMIN_PASSWORD_HASH=...` line in your env. The plaintext password is never stored.\
+Go to `/admin` and sign in with that password to add, edit and delete projects, upload banners/screenshots to S3, and clear the signed URL cache. Login is disabled when `ADMIN_PASSWORD_HASH` is unset.
 
 ### Database
 
