@@ -28,6 +28,29 @@ import {
 
 export type TechnologyType = "ts"|"js"|"java"|"cpp"|"css"|"json"|"html"|"nodejs"|"react"|"next"|"bootstrap"|"matterjs"|"mongodb"|"aws"|"linux"|"webpack"|"electron"|"socketio"|"bun"|"vercel"
 
+export const technologyNames: Record<TechnologyType, string> = {
+  aws: "AWS",
+  cpp: "C++",
+  css: "CSS",
+  bun: "Bun",
+  js: "Javascript",
+  ts: "Typescript",
+  bootstrap: "Bootstrap",
+  electron: "Electron",
+  html: "HTML",
+  java: "Java",
+  linux: "Linux",
+  json: "JSON",
+  next: "NextJS",
+  matterjs: "MatterJS",
+  mongodb: "MongoDB",
+  nodejs: "NodeJS",
+  react: "React",
+  socketio: "SocketIO",
+  vercel: "Vercel",
+  webpack: "Webpack",
+};
+
 export default function Technolnogy(params: {type: TechnologyType}) {
   function getIcon(type: TechnologyType) {
     switch (type) {
@@ -53,32 +76,10 @@ export default function Technolnogy(params: {type: TechnologyType}) {
       case "vercel": return <IconBrandVercelFilled/>;
     }
   }
-  const names: Record<TechnologyType, string> = {
-    aws: "AWS",
-    cpp: "C++",
-    css: "CSS",
-    bun: "Bun",
-    js: "Javascript",
-    ts: "Typescript",
-    bootstrap: "Bootstrap",
-    electron: "Electron",
-    html: "HTML",
-    java: "Java",
-    linux: "Linux",
-    json: "JSON",
-    next: "NextJS",
-    matterjs: "MatterJS",
-    mongodb: "MongoDB",
-    nodejs: "NodeJS",
-    react: "React",
-    socketio: "SocketIO",
-    vercel: "Vercel",
-    webpack: "Webpack",
-  };
   return (
     <div className={classes.technolagy}>
       {getIcon(params.type)}
-      <span>{names[params.type]}</span>
+      <span>{technologyNames[params.type]}</span>
     </div>
   )
 }

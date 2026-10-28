@@ -16,7 +16,7 @@ export default function NotFound() {
       </a>
       <div className={classes.error}>
         <h1>Error 404</h1>
-        <span>We couldn’t find this page</span>
+        <span>We couldn't find this page</span>
       </div>
     </div>
   )

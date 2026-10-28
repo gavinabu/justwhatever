@@ -16,7 +16,13 @@ AWS_REGION=aws region
 AWS_ACCESS=aws iam
 AWS_SECRET=aws iam secret
 S3_BUCKET=aws s3 bucket name
+ADMIN_PASSWORD=password for /admin
+ADMIN_SECRET=optional, signs admin session cookies (defaults to ADMIN_PASSWORD)
 ```
+
+### Admin
+
+Go to `/admin` and sign in with `ADMIN_PASSWORD` to add, edit and delete projects, upload banners/screenshots to S3, and clear the signed URL cache. Login is disabled when `ADMIN_PASSWORD` is unset.
 
 ### Database
 
