@@ -1,5 +1,5 @@
 /*
- * © 2020-2025 JustWhatever. All rights reserved.
+ * © 2020-2026 JustWhatever. All rights reserved.
  *  Property of Gavin Abu-Zahra. Do not reproduce or distribute without explicit permission.
  */
 
